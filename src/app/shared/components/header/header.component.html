@@ -1,0 +1,33 @@
+<p-menubar [model]="items">
+  <!-- Logo e título -->
+  <ng-template pTemplate="start">
+    <div class="flex align-items-center gap-2 px-2">
+      <i class="pi pi-briefcase text-lg text-primary"></i>
+      <span class="font-semibold text-lg">Gestão de Caixa e Estoque</span>
+    </div>
+  </ng-template>
+
+  <!-- Usuário + Sair -->
+  <ng-template pTemplate="end">
+    <div class="flex align-items-center gap-3 px-3">
+      <div class="flex flex-column align-items-end text-600 text-right">
+        <span class="font-semibold">{{ userNome }}</span>
+        <small>
+          {{ perfilLabel }}
+          <span *ngIf="perfilLabel && userEmail">·</span>
+          {{ userEmail }}
+        </small>
+      </div>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-sign-out"
+        label="Sair"
+        severity="danger"
+        class="p-button-sm"
+        (click)="sair()">
+      </button>
+    </div>
+  </ng-template>
+</p-menubar>
